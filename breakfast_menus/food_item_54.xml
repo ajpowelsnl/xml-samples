@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>6de7b5a8-f594-41e3-8da7-b24fe9803dca</guid>
+    <name>Avocado Toast</name>
+    <price>6.50</price>
+    <description>Whole grain toast topped with smashed avocado and a sprinkle of salt</description>
+    <calories>350</calories>
+</food>

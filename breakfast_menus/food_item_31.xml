@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>aa88c228-d986-46a4-b053-8ad3401023a5</guid>
+    <name>Quinoa Bowl</name>
+    <price>8.00</price>
+    <description>Quinoa topped with avocado, cherry tomatoes, and a poached egg</description>
+    <calories>450</calories>
+</food>

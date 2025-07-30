@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>cac382ae-e188-4b3e-b40c-d3f6853c8d6c</guid>
+    <name>Eggs Benedict</name>
+    <price>10.95</price>
+    <description>Poached eggs on English muffin with ham and hollandaise sauce</description>
+    <calories>700</calories>
+</food>

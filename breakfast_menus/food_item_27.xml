@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>58a988d6-233c-4032-87f2-9f22e005ff32</guid>
+    <name>Chia Pudding</name>
+    <price>4.50</price>
+    <description>Chia seeds soaked in almond milk, topped with berries</description>
+    <calories>250</calories>
+</food>

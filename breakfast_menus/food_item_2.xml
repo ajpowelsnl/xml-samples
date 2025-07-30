@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>48fc02ac-d965-4dd7-a756-b178c052908b</guid>
+    <name>Smoked Salmon Bagel</name>
+    <price>8.50</price>
+    <description>Bagel topped with cream cheese, smoked salmon, and capers</description>
+    <calories>500</calories>
+</food>

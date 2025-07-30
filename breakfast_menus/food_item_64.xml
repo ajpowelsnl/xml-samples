@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>3435dac6-57f1-4891-a75a-2012d88bae1b</guid>
+    <name>Peanut Butter Banana Toast</name>
+    <price>5.00</price>
+    <description>Whole grain toast topped with peanut butter and banana slices</description>
+    <calories>400</calories>
+</food>

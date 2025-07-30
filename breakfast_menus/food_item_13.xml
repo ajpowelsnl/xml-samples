@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>e64882ab-dca2-4049-8fc3-93c2970160c3</guid>
+    <name>Granola Bowl</name>
+    <price>5.50</price>
+    <description>Homemade granola served with yogurt and honey</description>
+    <calories>600</calories>
+</food>

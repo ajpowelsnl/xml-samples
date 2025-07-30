@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>9d4faca0-6957-4b90-acf9-f0b7261ac15a</guid>
+    <name>French Toast</name>
+    <price>6.95</price>
+    <description>Thick slices of bread dipped in egg and grilled, served with syrup</description>
+    <calories>750</calories>
+</food>

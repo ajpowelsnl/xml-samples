@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>36ddc560-5100-43de-b4b7-3d71588f576f</guid>
+    <name>Breakfast Sandwich</name>
+    <price>7.50</price>
+    <description>Egg, cheese, and sausage on a toasted bagel</description>
+    <calories>600</calories>
+</food>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+    <guid>d30d76c4-2b37-4c9f-b496-83569734cba5</guid>
+    <name>Breakfast Burrito</name>
+    <price>9.50</price>
+    <description>A flour tortilla filled with scrambled eggs, cheese, and salsa</description>
+    <calories>800</calories>
+</food>
