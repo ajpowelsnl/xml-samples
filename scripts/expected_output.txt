@@ -1,0 +1,21 @@
+         time value           description location.city location.country measurements.measurement.type measurements.measurement.value
+0  2025-07-31   100  Sample data point 1        City A        Country A                     Temperature                        22.5
+1  2025-07-31   100  Sample data point 1        City A        Country A                         Humidity                        60.0
+2  2025-08-01   150  Sample data point 2        City B        Country B                     Temperature                        23.0
+3  2025-08-01   150  Sample data point 2        City B        Country B                         Humidity                        55.0
+4  2025-08-02   200  Sample data point 3        City C        Country C                     Temperature                        24.0
+5  2025-08-02   200  Sample data point 3        City C        Country C                         Humidity                        50.0
+6  2025-08-03   250  Sample data point 4        City D        Country D                     Temperature                        25.5
+7  2025-08-03   250  Sample data point 4        City D        Country D                         Humidity                        45.0
+8  2025-08-04   300  Sample data point 5        City E        Country E                     Temperature                        26.0
+9  2025-08-04   300  Sample data point 5        City E        Country E                         Humidity                        40.0
+10 2025-08-05   350  Sample data point 6        City F        Country F                     Temperature                        27.0
+11 2025-08-05   350  Sample data point 6        City F        Country F                         Humidity                        35.0
+12 2025-08-06   400  Sample data point 7        City G        Country G                     Temperature                        28.0
+13 2025-08-06   400  Sample data point 7        City G        Country G                         Humidity                        30.0
+14 2025-08-07   450  Sample data point 8        City H        Country H                     Temperature                        29.0
+15 2025-08-07   450  Sample data point 8        City H        Country H                         Humidity                        25.0
+16 2025-08-08   500  Sample data point 9        City I        Country I                     Temperature                        30.0
+17 2025-08-08   500  Sample data point 9        City I        Country I                         Humidity                        20.0
+18 2025-08-09   550  Sample data point 10       City J        Country J                     Temperature                        31.0
+19 2025-08-09   550  Sample data point 10       City J        Country J                         Humidity                        15.0

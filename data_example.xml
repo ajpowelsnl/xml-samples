@@ -1,0 +1,12 @@
+<data>
+    <item id="1">
+        <name>Apple</name>
+        <price>1.00</price>
+    </item>
+    <item id="2">
+        <name>Banana</name>
+        <details>
+            <color>Yellow</color>
+        </details>
+    </item>
+</data>
