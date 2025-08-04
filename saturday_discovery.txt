@@ -1,0 +1,482 @@
+import xml.etree.ElementTree as ET
+import pandas as pd
+import numpy as np
+
+######
+
+
+In [222]: 
+
+In [222]: xml_file = "git_example.xml"
+
+In [223]: 
+
+In [223]: tree = ET.parse(xml_file)
+
+In [224]: root = tree.getroot()
+
+In [225]: all_elements = list(root.iter())
+
+In [226]: data_records = []
+
+In [227]: for element in all_elements:
+     ...:     record = {
+     ...:     'tag':  element.tag,
+     ...:     'text':  element.text.strip() if element.text else None,
+     ...:     'attributes':  element.attrib
+     ...:     }
+     ...:     data_records.append(record)
+     ...: 
+
+In [228]: len(data_records)
+Out[228]: 77863
+
+In [229]:  df = pd.DataFrame(data_records)
+
+In [230]: df.columns
+Out[230]: Index(['tag', 'text', 'attributes'], dtype='object')
+
+In [231]: type(df.columns)
+Out[231]: pandas.core.indexes.base.Index
+
+In [232]: df['tag'].value_counts()
+Out[232]: 
+tag
+product             8210
+discount            4105
+short               4105
+shipping            4105
+brand               4105
+retail              4105
+price               4105
+type                4105
+pixel               4105
+description         4105
+productImage        4105
+URL                 4105
+primary             4105
+category            4105
+modification        4105
+availability        4105
+long                4091
+upc                 3890
+secondary             90
+trailer                1
+merchandiser           1
+header                 1
+createdOn              1
+merchantName           1
+merchantId             1
+numberOfProducts       1
+Name: count, dtype: int64
+
+In [236]: df['tag'].value_counts()
+Out[236]: 
+tag
+product             8210
+discount            4105
+short               4105
+shipping            4105
+brand               4105
+retail              4105
+price               4105
+type                4105
+pixel               4105
+description         4105
+productImage        4105
+URL                 4105
+primary             4105
+category            4105
+modification        4105
+availability        4105
+long                4091
+upc                 3890
+secondary             90
+trailer                1
+merchandiser           1
+header                 1
+createdOn              1
+merchantName           1
+merchantId             1
+numberOfProducts       1
+Name: count, dtype: int64
+
+In [242]: df_filtered_on_upc = df.query("tag == 'upc'")
+
+In [243]: df_filtered_on_upc
+Out[243]: 
+       tag            text attributes
+21     upc  00036504884013         {}
+41     upc  00853190005047         {}
+61     upc  00689076007030         {}
+81     upc  00840254178410         {}
+100    upc  00669279050224         {}
+...    ...             ...        ...
+77710  upc  00034223503727         {}
+77729  upc  04994857036205         {}
+77748  upc  00194518415903         {}
+77767  upc  00194518429894         {}
+77786  upc  00194518430036         {}
+
+[3890 rows x 3 columns]
+
+
+In [244]: type(df_filtered_on_upc)
+Out[244]: pandas.core.frame.DataFrame
+
+In [248]: df_filtered_on_upc.keys
+Out[248]: 
+<bound method NDFrame.keys of        tag            text attributes
+21     upc  00036504884013         {}
+41     upc  00853190005047         {}
+61     upc  00689076007030         {}
+81     upc  00840254178410         {}
+100    upc  00669279050224         {}
+...    ...             ...        ...
+77710  upc  00034223503727         {}
+77729  upc  04994857036205         {}
+77748  upc  00194518415903         {}
+77767  upc  00194518429894         {}
+77786  upc  00194518430036         {}
+
+[3890 rows x 3 columns]>
+
+In [249]: 
+
+In [249]: df_filtered_on_upc.values
+Out[249]: 
+array([['upc', '00036504884013', {}],
+       ['upc', '00853190005047', {}],
+       ['upc', '00689076007030', {}],
+       ...,
+       ['upc', '00194518415903', {}],
+       ['upc', '00194518429894', {}],
+       ['upc', '00194518430036', {}]], dtype=object)
+
+
+In [273]: df_filtered_on_upc.head()
+Out[273]: 
+     tag            text attributes
+21   upc  00036504884013         {}
+41   upc  00853190005047         {}
+61   upc  00689076007030         {}
+81   upc  00840254178410         {}
+100  upc  00669279050224         {}
+
+
+In [288]: type(df_filtered_on_upc['text'])
+Out[288]: pandas.core.series.Series
+
+
+In [287]: type(df_filtered_on_upc['text'].values)
+Out[287]: numpy.ndarray
+
+In [290]: df_filtered_on_upc['text'].size
+Out[290]: 3890
+
+
+
+
+In [286]: count = 0
+     ...: for value in df_filtered_on_upc.values:
+     ...:     if value is not None:
+     ...:         print(value)
+     ...:         count += 1
+     ...:         if count >=10:
+     ...:             break
+     ...: 
+['upc' '00036504884013' {}]
+['upc' '00853190005047' {}]
+['upc' '00689076007030' {}]
+['upc' '00840254178410' {}]
+['upc' '00669279050224' {}]
+['upc' '00669279050217' {}]
+['upc' '00022275040048' {}]
+['upc' '00689769107337' {}]
+['upc' '00094922898272' {}]
+['upc' '00689769202230' {}]
+
+In [291]: 
+
+
+In [297]: df_filtered_on_brand
+Out[297]: 
+         tag              text attributes
+18     brand        Champ Golf         {}
+38     brand      Stinger Tees         {}
+58     brand        Vegas Golf         {}
+78     brand     Ray Cook Golf         {}
+97     brand  Rock Bottom Golf         {}
+...      ...               ...        ...
+77783  brand     Callaway Golf         {}
+77802  brand        Cobra Golf         {}
+77820  brand      Odyssey Golf         {}
+77838  brand   TaylorMade Golf         {}
+77856  brand     Titleist Golf         {}
+
+[4105 rows x 3 columns]
+
+In [298]: df_filtered_on_brand.keys
+Out[298]: 
+<bound method NDFrame.keys of          tag              text attributes
+18     brand        Champ Golf         {}
+38     brand      Stinger Tees         {}
+58     brand        Vegas Golf         {}
+78     brand     Ray Cook Golf         {}
+97     brand  Rock Bottom Golf         {}
+...      ...               ...        ...
+77783  brand     Callaway Golf         {}
+77802  brand        Cobra Golf         {}
+77820  brand      Odyssey Golf         {}
+77838  brand   TaylorMade Golf         {}
+77856  brand     Titleist Golf         {}
+
+[4105 rows x 3 columns]>
+
+In [299]: df_filtered_on_brand.values
+Out[299]: 
+array([['brand', 'Champ Golf', {}],
+       ['brand', 'Stinger Tees', {}],
+       ['brand', 'Vegas Golf', {}],
+       ...,
+       ['brand', 'Odyssey Golf', {}],
+       ['brand', 'TaylorMade Golf', {}],
+       ['brand', 'Titleist Golf', {}]], dtype=object)
+
+In [302]: df_filtered_on_brand.size
+Out[302]: 12315
+
+In [304]: count = 0
+     ...: for value in df_filtered_on_brand['text'].values:
+     ...:     if value == 'Titleist Golf':
+     ...:         count += 1
+     ...: print(f"Number of instances of 'Titelist Golf' {count}")
+
+In [305]: count = 0
+     ...: for value in df_filtered_on_brand['text'].values:
+     ...:     if value == 'Odyssey Golf':
+     ...:         count += 1
+     ...: print(f"Number of instances of 'Odyssey Golf' {count}")
+Number of instances of 'Odyssey Golf' 12
+
+In [307]: count = 0
+     ...: for value in df_filtered_on_brand['text'].values:
+     ...:     if value == 'TaylorMade Golf':
+     ...:         count += 1
+     ...: print(f"Number of instances of 'TaylorMade Golf' {count}")
+Number of instances of 'TaylorMade Golf' 110
+
+
+#EXAMPLE::
+
+import pandas as pd
+
+df1 = pd.DataFrame({'ID': [1, 2, 3], 'Value1': ['A', 'B', 'C']})
+df2 = pd.DataFrame({'ID': [1, 3, 4], 'Value2': ['X', 'Y', 'Z']})
+
+# Merge df1 and df2 on the 'ID' column
+merged_df = pd.merge(df1, df2[['ID', 'Value2']], on='ID', how='left')
+print(merged_df)
+
+import pandas as pd
+
+df_target = pd.DataFrame({'ID': [1, 2, 3, 4], 'Data': [10, 20, 30, 40]})
+df_source = pd.DataFrame({'ID': [2, 4], 'NewData': [200, 400]})
+
+# Update 'Data' in df_target where 'ID' matches df_source
+df_target.loc[df_target['ID'].isin(df_source['ID']), 'Data'] = df_source['NewData'].values
+print(df_target)
+
+
+
+
+#####
+
+
+
+
+
+
+
+#####
+In [196]: type(df['tag'].values)
+Out[196]: numpy.ndarray
+
+In [146]: for index,value in df_git_xml['tag'].items():
+     ...:     if value == 'merchantId':
+     ...:         print(value)
+     ...:         print(index)
+
+
+
+In [189]: for value in df['tag'].values:
+     ...:     if value == 'item':
+     ...:         print(type(value))
+     ...: 
+<class 'str'>
+<class 'str'>
+
+
+
+In [216]: df_filtered_on_item = df.query("tag == 'item' and text.notnull() and attributes.notnull()")
+
+In [217]: df_filtered_on_item
+Out[217]: 
+    tag text   attributes
+1  item       {'id': '1'}
+4  item       {'id': '2'}
+
+
+In [220]: df_filtered_on_item.columns
+Out[220]: Index(['tag', 'text', 'attributes'], dtype='object')
+
+In [221]: for index,value in df_filtered_on_item.items():
+     ...:     print(index)
+     ...:     print(value)
+     ...: 
+tag
+1    item
+4    item
+Name: tag, dtype: object
+text
+1    
+4    
+Name: text, dtype: object
+attributes
+1    {'id': '1'}
+4    {'id': '2'}
+Name: attributes, dtype: object
+
+
+
+
+#######
+
+In [186]: type(df['tag'].values)
+Out[186]: numpy.ndarray
+
+
+
+
+#####
+
+xml_file = 
+
+tree = ET.parse(xml_file)
+
+root = tree.getroot()
+
+all_elements = list(root.iter())
+
+data_records = []
+
+for element in all_elements:
+    record = {
+    'tag':  element.tag,
+    'text':  element.text.strip() if element.text else None,
+    'attributes':  element.attrib
+    }
+    data_records.append(record)
+
+ df = pd.DataFrame(data_records)
+ 
+#  In [77]: df.columns
+# Out[77]: Index(['tag', 'text', 'attributes'], dtype='object')
+# 
+# In [78]: 
+# 
+# In [78]: 
+# 
+# In [78]: df['tag']
+# Out[78]: 
+# 0       data
+# 1       item
+# 2       name
+# 3      price
+# 4       item
+# 5       name
+# 6    details
+# 7      color
+# Name: tag, dtype: object
+# 
+# In [79]: 
+# 
+# In [79]: df['text']
+# Out[79]: 
+# 0          
+# 1          
+# 2     Apple
+# 3      1.00
+# 4          
+# 5    Banana
+# 6          
+# 7    Yellow
+# Name: text, dtype: object
+# 
+# In [80]: df['attributes']
+# Out[80]: 
+# 0             {}
+# 1    {'id': '1'}
+# 2             {}
+# 3             {}
+# 4    {'id': '2'}
+# 5             {}
+# 6             {}
+# 7             {}
+# Name: attributes, dtype: object
+
+####
+
+# git file
+
+In [81]: xml_file = "git_example.xml"
+
+In [82]: tree = ET.parse(xml_file)
+
+In [83]: root = tree.getroot()
+
+In [84]: 
+
+In [84]: all_elements = list(root.iter())
+
+In [85]: len(all_elements)
+Out[85]: 77863
+
+In [86]: 
+
+In [86]: 
+
+In [86]: for element in all_elements:
+    ...:     record = {
+    ...:         'tag':  element.tag,
+    ...:         'text':  element.text.strip() if element.text else None,
+    ...:         'attributes':  element.attrib
+    ...:         }
+    ...:     data_records.append(record)
+    ...: 
+
+In [87]: 
+
+In [87]: data_records = []
+
+In [88]: 
+
+In [88]: for element in all_elements:
+    ...:     record = {
+    ...:         'tag':  element.tag,
+    ...:         'text':  element.text.strip() if element.text else None,
+    ...:         'attributes':  element.attrib
+    ...:         }
+    ...:     data_records.append(record)
+    ...: 
+
+In [89]: len(data_records)
+Out[89]: 77863
+
+
+In [90]: df_git_xml = pd.DataFrame(data_records)
+
+[91]: df_git_xml.columns
+Out[91]: Index(['tag', 'text', 'attributes'], dtype='object')
+
+
